@@ -1,0 +1,208 @@
+
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block css%}
+    
+
+{% endblock%}
+
+
+{% block contenido%}
+
+
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Sobre <span clsas="d-block"> Nosotros </span></h1>
+								<p class="mb-4">Conoce más sobre la tienda y las personas detrás de este gran proyecto benefico.</p>
+								<p><a href="{% url 'shop' %}" class="btn btn-secondary me-2">Tienda</a><a href="{% url 'index' %}" class="btn btn-white-outline">Explora</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="{% static 'core/assets/images/productos/exoticos/jug6.png' %}" class="img-fluid" style="height: 445px;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+
+		
+
+		<!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-6">
+						<h2 class="section-title">Porque elegirnos</h2>
+						<p>Mira porque somos la mejor opción para abastecer a tu amada mascota.</p>
+
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'core/assets/images/truck.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Repartimos de forma rapida y segura</h3>
+									<p>Recorremos todo el pais para brindarte la mejor atención a la puerta de tu casa, donde sea que estés.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'core/assets/images/bag.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Facil de comprar</h3>
+									<p>Comprar todo lo que quieres para tu mascota nunca ha sido más sencillo.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'core/assets/images/support.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Soporte 24/7</h3>
+									<p>¿Tienes algún problema o inquietúd? Nuestros operadores están disponibles para resolver todo.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="{% static 'core/assets/images/return.svg' %}" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Garantia y devoluciones GRATIS!</h3>
+									<p>Compra tu producto con toda confianza, en caso de cualquier inconveniente, te enviaremos uno nuevo completamente Gratis!</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="{% static 'core/assets/images/con1.jpg' %}" alt="Image" class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+
+		
+
+		<!-- Start Testimonial Slider -->
+		<div class="testimonial-section before-footer-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 mx-auto text-center">
+						<h2 class="section-title">Testimonios</h2>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="col-lg-12">
+						<div class="testimonial-slider-wrap text-center">
+
+							<div id="testimonial-nav">
+								<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+								<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+							</div>
+
+							<div class="testimonial-slider">
+								
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p>&ldquo;Excelente tienda para mascotas, precios justos y productos de alta calidad. El personal es muy atento y amigable. ¡Recomiendo encarecidamente!.&rdquo;</p>
+												</blockquote>
+
+												<div class="author-info">
+													<div class="author-pic">
+														<img src="{% static 'core/assets/images/person-1.png' %}" alt="Maria Jones" class="img-fluid">
+													</div>
+													<h3 class="font-weight-bold">Maria peréz</h3>
+													<span class="position d-block mb-3">Clienta satisfecha</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> 
+								<!-- END item -->
+
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p>&ldquo;Estoy muy contento con mi compra. Encontré todo lo que necesitaba para mi mascota y el personal fue amable y servicial. Definitivamente volveré a comprar aquí en el futuro. ¡Gracias por una gran experiencia de compra!&rdquo;</p>
+												</blockquote>
+
+												<div class="author-info">
+													<div class="author-pic">
+														<img src="{% static 'core/assets/images/person_3.jpg' %}" alt="Maria Jones" class="img-fluid">
+													</div>
+													<h3 class="font-weight-bold">José Vicuña</h3>
+													<span class="position d-block mb-3">Cliente satisfecho</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> 
+								<!-- END item -->
+
+								<div class="item">
+									<div class="row justify-content-center">
+										<div class="col-lg-8 mx-auto">
+
+											<div class="testimonial-block text-center">
+												<blockquote class="mb-5">
+													<p>&ldquo;¡No podría estar más feliz con mi experiencia de compra en la tienda de mascotas! La selección de productos es amplia y de alta calidad, y el personal es muy conocedor y amable. Me encanta saber que puedo confiar en esta tienda para satisfacer todas las necesidades de mi mascota. ¡Altamente recomendado!.&rdquo;</p>
+												</blockquote>
+
+												<div class="author-info">
+													<div class="author-pic">
+														<img src="{% static 'core/assets/images/person_4.jpg' %}" alt="Maria Jones" class="img-fluid">
+													</div>
+													<h3 class="font-weight-bold">Andrea Espinoza</h3>
+													<span class="position d-block mb-3">Clienta satisfecha</span>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> 
+								<!-- END item -->
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Testimonial Slider -->
+
+		
+
+		{% endblock%}	
+
+{% block js %}
+    
+
+{% endblock%}

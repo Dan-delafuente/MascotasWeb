@@ -1,0 +1,198 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="{%static 'core/assets/images/faviconw.png' %}">
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet"> 	
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link href="{%static 'core/assets/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{%static 'core/assets/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' %}" rel="stylesheet">
+		<link href="{%static 'core/assets/css/tiny-slider.css' %}" rel="stylesheet">
+		<link href="{%static 'core/assets/css/style.css' %}" rel="stylesheet">
+		<link href="{%static 'core/assets/css/map.remponsive.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="{% static 'core/css/icomoon.css' %}">
+		{% block css%}
+    
+
+        {% endblock%}
+
+
+		<title>PetStoreDuoc </title>
+	</head>
+
+	<body >
+
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand" href="{% url 'index' %}">PetStore <span>Duoc.</span></a>
+				{% if user.is_authenticated %}
+                <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                            <a style="color: whitesmoke; font-size: 25px;">Bienvenido: {{ user.username }} </a>
+                {% else %}
+              
+                {% endif %}
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item ">
+							<a class="nav-link" href="{% url 'index' %}">Inicio</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="{% url 'shop' %}">Todas las categorías</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="{% url 'perro' %}">Perros</a></li>
+								<li><a class="dropdown-item" href="{% url 'gato' %}">Gatos</a></li>
+								<li><a class="dropdown-item" href="{% url 'exotico' %}">Exoticos</a></li>
+								
+								
+							</ul>
+						</li>
+						<li><a class="nav-link" href="{% url 'about' %}">Sobre nosotros</a></li>
+						<li><a class="nav-link" href="{% url 'contact' %}">Contactanos</a></li>
+					</ul>
+
+					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+						{% if user.is_authenticated %}
+						<li><a class="nav-link" href="{% url 'logout' %}">Cerrar sesion<img src="{%static 'core/assets/images/user.svg' %}"></a></li>
+						<li><a class="nav-link" href="{% url 'cart' %}"><img src="{%static 'core/assets/images/cart.svg' %}"></a></li>
+						<li><a class="nav-link" href="{% url 'trabajador' %}"><img src="{%static 'core/assets/images/work.svg' %}"></a></li>
+						{% else %}
+						<li><a class="nav-link" href="{% url 'login' %}"> Ingresar<img src="{%static 'core/assets/images/user.svg' %}"></a></li>
+
+						{% endif %}
+						
+					</ul>
+				</div>
+			</div>
+				
+		</nav>
+		<!-- End Header/Navigation -->
+        {% block contenido%}
+    
+
+        {% endblock%}
+
+        <!-- Start Footer Section -->
+		<footer class="footer-section">
+			<div class="container relative">
+
+				<div class="sofa-img">
+					<img src="{%static 'core/assets/images/productos/exoticos/jug.png' %}" alt="Image" class="img-fluid">
+				</div>
+
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="subscription-form">
+							<h3 class="d-flex align-items-center">
+									<span class="me-1">
+									<img src="{%static 'core/assets/images/correo.avif' %}" width="45px" height="45px" alt="Image" class="img-fluid">
+								</span>
+							
+								<span>Subscribete para recibir ofertas</span>
+							</h3>
+
+							<form action="#" class="row g-3">
+								<div class="col-auto">
+									<input type="text" class="form-control" placeholder="Ingresa tu nombre">
+								</div>
+								<div class="col-auto">
+									<input type="email" class="form-control" placeholder="Ingresa tu email">
+								</div>
+								<div class="col-auto">
+									<button class="btn btn-primary">
+										<span class="fa fa-paper-plane">Suscribirse</span>
+									</button>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row g-5 mb-5">
+					<div class="col-lg-4">
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">PetStoreDuoc<span>.</span></a></div>
+						<p class="mb-4">La tienda benefica de animales más famosa entre las mascotas</p>
+
+						<ul class="list-unstyled custom-social">
+							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-8">
+						<div class="row links-wrap">
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="{% url 'about' %}">Sobre nosotros</a></li>
+									<li><a href="{% url 'cart' %}">Tienda</a></li>
+									<li><a href="{% url 'contact' %}">Contactanos</a></li>
+									<li><a href="{% url 'index' %}">Explorar</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-2">
+							<div class="map-container">
+									<div class="map-responsive">
+										
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53183.9828452749!2d-70.64068185755997!3d-33.57937709785818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d7037854df81%3A0x893f58a1479b8f82!2sDuoc%20UC%3A%20Sede%20Puente%20Alto!5e0!3m2!1ses-419!2scl!4v1682196929242!5m2!1ses-419!2scl" width="16000" height="1450	0"  style="border-radius:35px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="border-top copyright">
+					<div class="row pt-4">
+						<div class="col-lg-6">
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a> <!-- License information: https://untree.co/license/ -->
+            </p>
+						</div>
+
+						<div class="col-lg-6 text-center text-lg-end">
+							<ul class="list-unstyled d-inline-flex ms-auto">
+								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</footer>
+		<!-- End Footer Section -->	
+
+
+		<script src="{%static 'core/assets/js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{%static 'core/assets/js/tiny-slider.js' %}"></script>
+		<script src="{%static 'core/assets/js/custom.js' %}"></script>
+		<script src="{%static 'core/assets/js/reg.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+		{% block js%}
+
+        {% endblock%}
+	</body>
+
+</html>

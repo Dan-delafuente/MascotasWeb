@@ -1,0 +1,281 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+
+{% block contenido%}
+
+<!-- Start Hero Section -->
+
+<div class="hero">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-5">
+				<div class="intro-excerpt">
+					<h1>¡Los Mejores Productos <span clss="d-block">Para Tus Mascotas!</span></h1>
+					<p class="mb-4">Una Amplia Variedad de Productos Para Todo Tipo de Mascotas.</p>
+					<p><a href="" class="btn btn-secondary me-2">Compra Ya!</a>
+						<a href="#" class="btn btn-white-outline">Explorar</a></p>
+				</div>
+			</div>
+			<div class="col-lg-7">
+				<div class="hero-img-wrap">
+					<img src="{%static 'core/assets/images/base.png' %}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Hero Section -->
+
+<!-- Start Product Section -->
+<div class="product-section">
+<div class="container">
+	<div class="row">
+
+		<!-- Start Column 1 -->
+		<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+			<h2 class="mb-4 section-title">Productos de Muy Buena Calidad.</h2>
+			<p class="mb-4">Aqui encontraras productos que van desde abrigos hasta alimentos y hogares para mascotas, no te pierdas los mejores precios!! </p>
+			<p><a href="{% url 'shop'%}" class="btn">Explorar</a></p>
+		</div> 
+		<!-- End Column 1 -->
+
+		<!-- Start Column 2 -->
+		{% for aux in listado %}
+		{% if aux.stock > 1 %}
+		<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+			<a class="product-item" onclick="mensajes()">
+
+				{% if aux.imagen %}
+				<img class="img-fluid product-thumbnail" src="{{ aux.imagen.url }}" >
+				{% else %}
+				<img src="{%static 'core/assets/images/gatooo.avif' %}" class="img-fluid product-thumbnail">
+				{% endif %}
+
+				<h3 class="product-title">{{ aux.nombre }}</h3>
+				<strong class="product-price">${{ aux.precio}}</strong>
+				<p>{{ aux.tipo}}</p>
+				{% if aux.stock > 5 %}
+					<p>Stock : {{ aux.stock	}}</p>
+					
+				{% else %}
+				<p>Stock : Producto agotado</p>
+				{% endif %}
+				<span  class="icon-cross">
+					<img src="{%static 'core/assets/images/cross.svg' %}" class="img">
+
+				</span>
+					
+			</a>
+			<br><br>
+		</div> 
+		{% endif %}
+		{% endfor %}
+		{% include 'core/paginator.html' %}
+		<!-- End Column 2 -->
+
+
+
+	</div>
+</div>
+</div>
+<!-- End Product Section -->
+
+<!-- Start Why Choose Us Section -->
+<div class="why-choose-section">
+<div class="container">
+	<div class="row justify-content-between">
+		<div class="col-lg-6">
+			<h2 class="section-title">¿Por qué Elegirnos?</h2>
+			<p>Somos una tienda sin fines de lucro con muchas variedades en productos y ofertas seleccionadas.</p>
+
+			<div class="row my-5">
+				<div class="col-6 col-md-6">
+					<div class="feature">
+						<div class="icon">
+							<img src="{%static 'core/assets/images/truck.svg' %}" alt="Image" class="imf-fluid">
+						</div>
+						<h3>Envío &amp; Rápido y Gratis</h3>
+						<p>Dentro de la Region Metropolitana, fuera de la Region tiene un recargo de $1000.</p>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-6">
+					<div class="feature">
+						<div class="icon">
+							<img src="{%static 'core/assets/images/bag.svg' %}" alt="Image" class="imf-fluid">
+						</div>
+						<h3>Facilidad Al Comprar</h3>
+						<p>Tenemos variedades en medios de pagos.</p>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-6">
+					<div class="feature">
+						<div class="icon">
+							<img src="{%static 'core/assets/images/support.svg' %}" alt="Image" class="imf-fluid">
+						</div>
+						<h3>Ayuda 24/7</h3>
+						<p>Atencion al cliente a toda hora del dia para consulta de productos y horarios de atenciones.</p>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-6">
+					<div class="feature">
+						<div class="icon">
+							<img src="{%static 'core/assets/images/return.svg' %}" alt="Image" class="imf-fluid">
+						</div>
+						<h3>Devoluciones Sin Costo</h3>
+						<p>Dentro del primer mes no te gusto o si tiene algun fallo alguno de nuestro productos te devolvemos tu dinero o te cambiamos sin recargo con despacho a domicilio.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-lg-5">
+			<div class="img-wrap">
+				<img src="{%static 'core/assets/images/elejirnosg.jpg' %}" alt="Image" class="img-fluid">
+			</div>
+		</div>
+
+	</div>
+</div>
+</div>
+<!-- End Why Choose Us Section -->
+
+<!-- Start We Help Section -->
+<div class="we-help-section">
+<div class="container">
+	<div class="row justify-content-between">
+		<div class="col-lg-7 mb-5 mb-lg-0">
+			<div class="imgs-grid">
+				<div class="grid grid-1"><img src="{%static 'core/assets/images/con1.jpg' %}" alt="Untree.co"></div>
+				<div class="grid grid-2"><img src="{%static 'core/assets/images/con3.avif' %}" alt="Untree.co"></div>
+				<div class="grid grid-3"><img src="{%static 'core/assets/images/con2.avif' %}" alt="Untree.co"></div>
+			</div>
+		</div>
+		<div class="col-lg-5 ps-lg-5">
+			<h2 class="section-title mb-4">Te Ayudamos Con La Comodidad de Tu Mascota</h2>
+			<p>Por que para nosotros una mascota es parte de la familia le ofrecemos calidad al mejor precio en nuestro pproductos unicos los cuales haran a tu mascota especial.</p>
+
+			<ul class="list-unstyled custom-list my-4">
+				<li>Productos unicos y garantizados en calidad y precio para animales</li>
+				<li>Productos para animales exoticos desde serpientes hasta cangrejos</li>
+				<li>Productos para que tus gatos se diviertan</li>
+				<li>Productos para que tus perros se alimenten</li>
+			</ul>
+			<p><a onclick="eliminarProducto()" class="btn">Explorar</a></p>
+		</div>
+	</div>
+</div>
+</div>
+<!-- End We Help Section -->
+
+
+<!-- Start Testimonial Slider -->
+<div class="testimonial-section before-footer-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7 mx-auto text-center">
+				<h2 class="section-title">Testimonios</h2>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<div class="testimonial-slider-wrap text-center">
+
+					<div id="testimonial-nav">
+						<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+						<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+					</div>
+
+					<div class="testimonial-slider">
+						
+						<div class="item">
+							<div class="row justify-content-center">
+								<div class="col-lg-8 mx-auto">
+
+									<div class="testimonial-block text-center">
+										<blockquote class="mb-5">
+											<p>&ldquo;Excelente tienda para mascotas, precios justos y productos de alta calidad. El personal es muy atento y amigable. ¡Recomiendo encarecidamente!.&rdquo;</p>
+										</blockquote>
+
+										<div class="author-info">
+											<div class="author-pic">
+												<img src="{% static 'core/assets/images/person-1.png' %}" alt="Maria Jones" class="img-fluid">
+											</div>
+											<h3 class="font-weight-bold">Maria peréz</h3>
+											<span class="position d-block mb-3">Clienta satisfecha</span>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div> 
+						<!-- END item -->
+
+						<div class="item">
+							<div class="row justify-content-center">
+								<div class="col-lg-8 mx-auto">
+
+									<div class="testimonial-block text-center">
+										<blockquote class="mb-5">
+											<p>&ldquo;Estoy muy contento con mi compra. Encontré todo lo que necesitaba para mi mascota y el personal fue amable y servicial. Definitivamente volveré a comprar aquí en el futuro. ¡Gracias por una gran experiencia de compra!&rdquo;</p>
+										</blockquote>
+
+										<div class="author-info">
+											<div class="author-pic">
+												<img src="{% static 'core/assets/images/person_3.jpg' %}" alt="Maria Jones" class="img-fluid">
+											</div>
+											<h3 class="font-weight-bold">José Vicuña</h3>
+											<span class="position d-block mb-3">Cliente satisfecho</span>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div> 
+						<!-- END item -->
+
+						<div class="item">
+							<div class="row justify-content-center">
+								<div class="col-lg-8 mx-auto">
+
+									<div class="testimonial-block text-center">
+										<blockquote class="mb-5">
+											<p>&ldquo;¡No podría estar más feliz con mi experiencia de compra en la tienda de mascotas! La selección de productos es amplia y de alta calidad, y el personal es muy conocedor y amable. Me encanta saber que puedo confiar en esta tienda para satisfacer todas las necesidades de mi mascota. ¡Altamente recomendado!.&rdquo;</p>
+										</blockquote>
+
+										<div class="author-info">
+											<div class="author-pic">
+												<img src="{% static 'core/assets/images/person_4.jpg' %}" alt="Maria Jones" class="img-fluid">
+											</div>
+											<h3 class="font-weight-bold">Andrea Espinoza</h3>
+											<span class="position d-block mb-3">Clienta satisfecha</span>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div> 
+						<!-- END item -->
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End testimonial -->
+
+
+    
+
+    {% endblock%}
+	
+
+<!-- SE PONEN DOS ALERTAS PARA VERIFICAR LOS FALLOS DENTRO DE LA PAGINA SE OPONE UNA AL INICIO Y UNA AL FINAL -->

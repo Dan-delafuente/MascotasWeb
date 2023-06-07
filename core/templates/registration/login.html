@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css%}
+
+<link href="{%static 'core/assets/css/reg/reg.css' %}" rel="stylesheet">
+
+{% endblock%}
+
+
+{% block contenido%}
+
+
+<section>
+
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+        <h1>Ingresar a PetStore  <span>Duoc</span></h1>
+        <div class="main-agileinfo">
+            <div class="agileits-top">
+                <form  method="post">
+                    {% csrf_token %}
+
+                    {{ form | crispy }}
+
+                    <div class="wthree-text">
+                        <br>
+                        <label class="anim">
+                            <input type="checkbox" class="checkbox" required="">
+
+                            <span>Acepto los Terminos y Condiciones</span>
+                        </label>
+                        <div class="clear"> </div>
+                    </div>
+                    <input type="submit" value="Iniciar sesión">
+                </form>
+                <p>No tienes una cuenta? <a href="{% url 'register' %}"> Registrate ahora!</a></p>
+            </div>
+        </div>
+        <!-- //copyright -->
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!-- //main -->
+</body>
+</html>
+
+</section>
+   
+
+
+{% endblock%}
+
+
+{% block js%}
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+{% endblock%}
